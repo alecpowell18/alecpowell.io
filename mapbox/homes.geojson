@@ -1,0 +1,27 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Home",
+        "description": "San Francisco"
+      },
+      "geometry": {
+        "coordinates": [-122.393874, 37.7758756],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Oakton, VA",
+        "description": ""
+      },
+      "geometry": {
+        "coordinates": [-77.35175679999999, 38.9021511],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
