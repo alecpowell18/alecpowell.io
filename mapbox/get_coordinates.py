@@ -6,7 +6,7 @@ import csv
 
 
 def call_api(title):
-    payload = {'address': title.replace(' ','+'), 'key': 'AIzaSyDkRfLR-E9TV5xHHwqFwRcs58zTs2eyE50'}
+    payload = {'address': title.replace(' ','+'), 'key': '${GOOGLE_MAPS_API_KEY}'}
     # Using REST    
     print(title + "....")
     r = requests.get("https://maps.googleapis.com/maps/api/geocode/json",
