@@ -1,0 +1,76 @@
+/* Reset default margin and padding */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a dark navy blue background color */
+body {
+    background-color: #001f3f; /* Dark Navy Blue */
+    font-family: "Oswald"; /* Use a serif font */
+    color: #fff; /* Text color */
+    padding-left: 20px; /* Increase left indentation */
+}
+
+/* Header styles */
+header {
+    background-color: #FF5733; /* Dark Orange */
+    color: #fff;
+    padding: 10px 20px; /* Added padding */
+    text-align: right; /* Right-align headers */
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Section styles */
+.section {
+    padding: 20px;
+    /* Align text to the left */
+    text-align: left;
+}
+
+/* Portfolio item styles */
+.portfolio-item {
+    margin: 20px;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    border: 1px solid #333;
+}
+
+/* Social links styles */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    font-size: 24px;
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+}
