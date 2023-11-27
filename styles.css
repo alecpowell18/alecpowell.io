@@ -8,6 +8,7 @@ body, h1, h2, p {
 body {
     background-color: #001f3f; /* Dark Navy Blue */
     font-family: "Oswald"; /* Use a serif font */
+    font-size: 18px;
     color: #fff; /* Text color */
     padding-left: 20px; /* Increase left indentation */
 }
