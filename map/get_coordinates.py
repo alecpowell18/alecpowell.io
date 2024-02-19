@@ -1,26 +1,17 @@
 #!/usr/bin/python3
+import os
 import requests
 import json
-import argparse
 import csv
+import googlemaps
 
+gmaps = googlemaps.Client(key=os.environ.get("GOOGLE_MAPS_API_KEY"))
 
 def call_api(title):
-    payload = {'address': title.replace(' ','+'), 'key': '${GOOGLE_MAPS_API_KEY}'}
-    # Using REST    
-    print(title + "....")
-    r = requests.get("https://maps.googleapis.com/maps/api/geocode/json",
-        headers={
-            "Accept": "application/json"
-        },
-        params=payload
-    )
-    if r.status_code != 200:
-        print(f"Error. Return code={r.status_code}")
-    # Serialize json mesage
-    data = json.loads(r.text)
-    lat = data['results'][0]['geometry']['location']['lat']
-    lng = data['results'][0]['geometry']['location']['lng']
+    geocode_result = gmaps.geocode(title)
+    data = geocode_result[0]
+    lat = data['geometry']['location']['lat']
+    lng = data['geometry']['location']['lng']
 
     d = {}
     d['title'] = title
@@ -29,10 +20,6 @@ def call_api(title):
     return d
 
 def main():
-    # parser = argparse.ArgumentParser(description='Produce data to kafka topic.')
-    # parser.add_argument('--time', type=int, dest='runtime', default=300, help='total runtime in seconds')
-
-    # args = parser.parse_args()
     places = []
     with open('in.csv','r', newline='\n') as f:
         reader = csv.reader(f, delimiter=',')
@@ -44,12 +31,14 @@ def main():
     print("------------------------")
     f.close()
 
+    print("starting geocoding now")
     with open('places.csv', 'w', newline='\n') as outfile:
         fieldnames = ['title', 'latitude', 'longitude']
         writer = csv.DictWriter(outfile, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()
         for t in places: 
             writer.writerow(call_api(t[0]))
+    print("finished geocoding!")
 
 
 if __name__ == "__main__":

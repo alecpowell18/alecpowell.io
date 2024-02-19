@@ -3,11 +3,11 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Home",
-        "description": "San Francisco"
+        "title": "San Francisco, CA",
+        "description": ""
       },
       "geometry": {
-        "coordinates": [-122.393874, 37.7758756],
+        "coordinates": [-122.4192, 37.7793],
         "type": "Point"
       }
     },
